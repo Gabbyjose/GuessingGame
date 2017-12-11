@@ -1,0 +1,80 @@
+body {
+    background-image: url('map-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#app {
+    width: 60%;
+    margin: 50px auto;
+    background-color: rgba(256, 256, 256, 0.5)
+}
+
+img {
+    width: 300px;
+    display: inline;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+body > div > div > button {
+    margin: 5px;
+    z-index: 0;
+}
+
+#footer {
+    width: 100%;
+    border-top: solid 2px black;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    filter: brightness(100%)
+}
+
+.center {
+    text-align: center;
+    padding: 2%;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    z-index: 0;
+}
+
+li {
+    background-color: white;
+    z-index: 0;
+}
+
+.guess {
+    display: inline;
+    border: 1px solid black;
+    font-size:60px;
+    padding: 0 25px;
+}
+
+#player-input {
+    position: relative;
+    border-radius: 50%;
+    font-size:100px;
+    width: 10%;
+    height: 30%;
+    text-align: center;
+    width: 160px;
+    left: 40px;
+}
+
+
+#guessing {
+    position: relative;
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    top: 20px;
+}
