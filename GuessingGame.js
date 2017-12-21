@@ -24,7 +24,7 @@ Game.prototype.isLower = function(){
     if (this.playersGuess > this.winningNumber){
         return "Guess lower";
     }
-    else if (this.playersGuess == this.winningNumber){
+    else if (this.playersGuess == this.winningNumber || this.pastGuesses.length > 4){
         return "Click reset to play again.";
     }
     else {
@@ -51,6 +51,8 @@ Game.prototype.playersGuessSubmission = function(n){
 
 Game.prototype.checkGuess = function(){
     if (this.playersGuess === this.winningNumber){
+        $("#guessing").prop("disabled",true);
+        $("button:contains('Hint')").prop("disabled",true);
         return "You Win!";
     }
     else if (this.pastGuesses.indexOf(this.playersGuess) >= 0){
@@ -58,6 +60,8 @@ Game.prototype.checkGuess = function(){
     }
     else if (this.pastGuesses.length === 4){
         this.pastGuesses.push(this.playersGuess);
+        $("#guessing").prop("disabled",true);
+        $("button:contains('Hint')").prop("disabled",true);
         return "You Lose.";
     }
     else if(this.difference() < 10){
@@ -94,6 +98,8 @@ $(document).ready(function(){
 
     $("button:contains('Reset')").click(function(){
         currentGame = newGame();
+        $("#guessing").prop("disabled",false);
+        $("button:contains('Hint')").prop("disabled",false);
         $('li').text('-');
         $('h1').text('Can You Guess Your Way to the Top?');
         $('h2').text("Guess any number between 1 and 100");
