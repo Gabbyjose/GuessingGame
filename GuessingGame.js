@@ -102,12 +102,18 @@ $(document).ready(function(){
         $('h1').text("Here's a hint!")
         $('h2').text("The number is one of these: "+currentGame.provideHint());
     })
-    $("#guessing").click(function(){
+    function handleGuess(){
         var currentGuess = Number($("#player-input").val());
         $('h1').text(currentGame.playersGuessSubmission(currentGuess))
         $('h2').text(currentGame.isLower())
         $("li:contains('-')").first().text(currentGuess.toString());
         $('input').attr("placeholder", "#").val("");
+    }
+    $("#guessing").click(handleGuess)
+    $('#player-input').keypress(function(event){
+        if(event.which == 13){
+            handleGuess();            
+        }
     })
 
 })
